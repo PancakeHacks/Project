@@ -1,0 +1,1 @@
+# for talking to a ai agent about how u did 
