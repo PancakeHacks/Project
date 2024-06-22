@@ -44,7 +44,7 @@ class Checkbox:
         # Render workout text
         text_surface = small_font.render(self.text, True, white)
         text_rect = text_surface.get_rect()
-        text_rect.center = self.rect.center
+        text_rect.midleft = (self.rect.right + 10, self.rect.centery)
         win.blit(text_surface, text_rect)
 
     def click(self, pos):
@@ -52,7 +52,7 @@ class Checkbox:
             self.checked = not self.checked
             if self.checked:
                 # Increase score when checkbox is checked
-                increase_score(5)  # Adjust score increase amount as needed
+                increase_score(2)  # Adjust score increase amount as needed
 
 # Initialize checkboxes for workouts
 checkboxes = []
@@ -100,7 +100,7 @@ def main():
                             break  # Exit loop after one reward is clicked
 
                 # Check if clicking on reward input box
-                if 400 <= mouse_pos[0] <= 700 and 50 <= mouse_pos[1] <= 100:
+                if box_width + gap_size + 50 <= mouse_pos[0] <= box_width + gap_size + 350 and gap_size + 50 <= mouse_pos[1] <= gap_size + 100:
                     input_active = True
                 else:
                     input_active = False
@@ -148,6 +148,8 @@ def main():
             reward_text_rect = reward_text.get_rect()
             reward_text_rect.topleft = (box_width + gap_size + 60, y_offset)
             if reward_text_rect.bottom <= box_height - gap_size:
+                reward["rect"] = pygame.Rect(box_width + gap_size + 50, y_offset, 300, 20)
+                pygame.draw.rect(window, white, reward["rect"], 2)
                 window.blit(reward_text, reward_text_rect)
             y_offset += 30  # Adjusted vertical spacing
 
