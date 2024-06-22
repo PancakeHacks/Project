@@ -18,4 +18,3 @@ windowsSize.blit(helloWorld, (0, 0))
 pygame.display.update()
 print("Hello World")
 # deez nutz
-#my b dawg
