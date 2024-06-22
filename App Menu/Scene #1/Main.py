@@ -37,9 +37,12 @@ textRect2= textPan.get_rect()
 textRect2.center = (450,300)
 textRect3 = textPro.get_rect()
 textRect3.center = (450,350)
-
 # Variable to keep our game loop running 
 running = True
+
+button = pygame.Surface((150, 75)) 
+button.fill((47, 165, 208))
+textbutton = font.render('Start', True, (0, 0, 0))
 
 # game loop 
 while running: 
@@ -49,6 +52,8 @@ while running:
 	screen.blit(textPro, textRect3)
 	screen.blit(img,(25,100))
 	screen.blit(img2,(575,100))
+	screen.blit(button, (375, 525)) 
+	button.blit(textbutton, (5, 5))
     # for loop through the event queue 
 	for event in pygame.event.get(): 
 	
