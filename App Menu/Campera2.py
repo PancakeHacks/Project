@@ -13,7 +13,7 @@ class Capture:
         self.clist = pygame.camera.list_cameras()
         if not self.clist:
             raise ValueError("Sorry, no cameras detected.")
-        self.cam = pygame.camera.Camera(self.clist[0], self.size)
+        self.cam = pygame.camera.Camera(self.clist[1], self.size)
         self.cam.start()
         
         self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
